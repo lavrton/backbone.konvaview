@@ -1,4 +1,49 @@
 backbone.kineticview
 ====================
 
-Special Backbone View for canvas via Kineticjs library.
+Special Backbone View for canvas via [Kineticjs](http://kineticjs.com/) library.
+
+Example:
+
+    var MyView = Backbone.KineticView.extend({
+      events : {
+        'click #rect' : function(){
+          console.log("on rectangle clicked");
+        },
+        'mouseover .circle' : 'onMouseOverCircle'
+      },
+      onMouseOverCircle : function(){
+        console.log('Mouse is over circle');
+      },
+      render : function(){
+        var rect = new Kinetic.Rect({
+          x : 100,
+          y : 100,
+          width : 50,
+          height : 50,
+          fill : 'green',
+          id : 'rect'
+        });
+        var circle = new Kinetic.Circle({
+          x : 200,
+          y : 100,
+          radius : 50,
+          fill : 'red',
+          name : 'circle'
+        });
+        var group = new Kinetic.Group();
+        group.add(rect).add(circle);
+        return group;  // ! important return Kinetic Object
+      }
+    });
+
+    var stage = new Kinetic.Stage({
+      container : 'container',
+      width : 300,
+      height : 300
+    });
+    var layer = new Kinetic.Layer();
+    stage.add(layer);
+    view = new MyView();
+    layer.add(view.el);
+    layer.draw();
