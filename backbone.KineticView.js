@@ -1,9 +1,30 @@
 (function(){
+
+     Backbone.KineticView = function(options) {
+      this.cid = _.uniqueId('view');
+      this._configure(options || {});
+      this._ensureElement();
+      this.initialize.apply(this, arguments);
+      this.delegateEvents();
+    };
+    Backbone.KineticView.extend = Backbone.Model.extend;
     var delegateEventSplitter = /^(\S+)\s*(.*)$/;
-    Backbone.KineticView = Backbone.View.extend({
+    var viewOptions = ['model', 'collection', 'el', 'attributes', 'events'];
+
+    _.extend(Backbone.KineticView.prototype, Backbone.Events, {
+
+      initialize: function(){},
+
       render : function(){
         return new Kinetic.Group();
       },
+
+      remove: function() {
+        this.el.destroy();
+        this.stopListening();
+        return this;
+      },
+
       setElement: function(element, delegate) {
         if (this.el) this.undelegateEvents();
         this.el = element;
@@ -12,7 +33,6 @@
       },
       _deleteEventFromNode : function(node) {
         var _this = this;
-        window.a = node.eventListeners;
         _.each(_.keys(node.eventListeners),function(eventType){
             node.off(eventType+'.delegateEvents' + _this.cid);
         });
@@ -46,6 +66,11 @@
           }
         }
         return this;
+      },
+      _configure: function(options) {
+        if (this.options) options = _.extend({}, _.result(this, 'options'), options);
+        _.extend(this, _.pick(options, viewOptions));
+        this.options = options;
       },
       _ensureElement: function() {
         if (!this.el) {
