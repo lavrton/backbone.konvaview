@@ -18,7 +18,7 @@ $(document).ready(function() {
   });
 
   test("constructor", function() {
-    equal(view.el instanceof Kinetic.Group, true);
+    equal(view.$el instanceof Kinetic.Group, true);
   });
 
   test("initialize", 1, function() {
@@ -36,7 +36,6 @@ $(document).ready(function() {
     view.increment = function(){ counter1++; };
 
     var events = {'click #test': 'increment'};
-
     view.delegateEvents(events);
     rect.fire('click');
     equal(counter1, 1);
@@ -59,21 +58,21 @@ $(document).ready(function() {
     };
 
     view.delegateEvents(events);
-    view.el.fire('click');
+    view.$el.fire('click');
     equal(view.counter, 1);
 
-    view.el.fire('click');
+    view.$el.fire('click');
     equal(view.counter, 2);
 
     view.delegateEvents(events);
-    view.el.fire('click');
+    view.$el.fire('click');
     equal(view.counter, 3);
   });
 
 
   test("delegateEvents ignore undefined methods", 0, function() {
     view.delegateEvents({'click': 'undefinedMethod'});
-    view.el.fire('click');
+    view.$el.fire('click');
   });
 
   test("undelegateEvents", 6, function() {
@@ -86,7 +85,7 @@ $(document).ready(function() {
 
     var counter1 = 0, counter2 = 0;
     view.increment = function(){ counter1++; };
-    view.el.on('click', function(){ counter2++; });
+    view.$el.on('click', function(){ counter2++; });
 
     var events = {'click .test': 'increment'};
 
@@ -132,14 +131,15 @@ $(document).ready(function() {
     equal(5, count);
   });
 
-  test("setElement uses provided object.", 2, function() {
+  test("setElement uses provided object.", 3, function() {
     var el = new Kinetic.Group();
 
-    var view = new Backbone.View();
-    ok(view.el !== el);
+    var view = new Backbone.KineticView();
+    ok(view.$el !== el);
 
     view.setElement(el);
-    ok(view.el === el);
+    ok(view.$el === el);
+    ok(view.el !== el);
   });
 
   test("Undelegate before changing element.", 1, function() {
@@ -149,7 +149,7 @@ $(document).ready(function() {
     var View = Backbone.KineticView.extend({
       events: {
         click: function(e) {
-          ok(view.el === button2);
+          ok(view.$el === button2);
         }
       }
     });
