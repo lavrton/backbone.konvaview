@@ -5,6 +5,7 @@ Special Backbone View for canvas via [Kineticjs](http://kineticjs.com/) library.
 
 Example:
 
+```javascript
     var MyView = Backbone.KineticView.extend({
       // build Kineticjs object, then return it.
       el : function(){
@@ -54,3 +55,4 @@ Example:
 
     view = new MyView({layer:layer});
     view.render();
+```
