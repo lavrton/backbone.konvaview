@@ -6,16 +6,8 @@ Special Backbone View for canvas via [Kineticjs](http://kineticjs.com/) library.
 Example:
 
     var MyView = Backbone.KineticView.extend({
-      events : {
-        'click #rect' : function(){
-          console.log("on rectangle clicked");
-        },
-        'mouseover .circle' : 'onMouseOverCircle'
-      },
-      onMouseOverCircle : function(){
-        console.log('Mouse is over circle');
-      },
-      render : function(){
+      // build Kineticjs object, then return it.
+      el : function(){
         var rect = new Kinetic.Rect({
           x : 100,
           y : 100,
@@ -33,7 +25,22 @@ Example:
         });
         var group = new Kinetic.Group();
         group.add(rect).add(circle);
-        return group;  // ! important return Kinetic Object
+        return group;
+      },
+      // setup events
+      events : {
+        'click #rect' : function(){
+          console.log("on rectangle clicked");
+        },
+        'mouseover .circle' : 'onMouseOverCircle'
+      },
+      onMouseOverCircle : function(){
+        console.log('Mouse is over circle');
+      },
+      render : function(){
+        // this.$el - cached kineticjs object.
+        this.options.layer.add(this.$el);
+        layer.draw();
       }
     });
 
@@ -44,6 +51,6 @@ Example:
     });
     var layer = new Kinetic.Layer();
     stage.add(layer);
-    view = new MyView();
-    layer.add(view.el);
-    layer.draw();
+
+    view = new MyView({layer:layer});
+    view.render();
