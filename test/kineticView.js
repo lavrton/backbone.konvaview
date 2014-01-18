@@ -85,22 +85,24 @@ $(document).ready(function() {
 
     var counter1 = 0, counter2 = 0;
     view.increment = function(){ counter1++; };
-    view.$el.on('click', function(){ counter2++; });
+    view.$el.on('click', function(){
+      counter2++;
+    });
 
     var events = {'click .test': 'increment'};
 
     view.delegateEvents(events);
-    rect.fire('click');
+    rect.fire('click', null, true);
     equal(counter1, 1);
     equal(counter2, 1);
 
     view.undelegateEvents();
-    rect.fire('click');
+    rect.fire('click', null, true);
     equal(counter1, 1);
     equal(counter2, 2);
 
     view.delegateEvents(events);
-    rect.fire('click');
+    rect.fire('click', null, true);
     equal(counter1, 2);
     equal(counter2, 3);
   });
