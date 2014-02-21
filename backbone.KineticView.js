@@ -1,17 +1,31 @@
-(function(){
+(function(root, factory) {
 
-     Backbone.KineticView = function(options) {
+  if (typeof define === 'function' && define.amd) {
+    define(['backbone', 'kinetic'], function(Backbone, Kinetic) {
+      Backbone.KineticView = factory(root, Backbone, Kinetic);
+      return Backbone;
+    });
+  } else {
+    root.Backbone.KineticView = factory(root, Backbone, Kinetic);
+  }
+
+}(this, function(root, Backbone, Kinetic) {
+
+     var KineticView = function(options) {
+      var options = options || {};
       this.cid = _.uniqueId('view');
       this._configure(options || {});
-      this._ensureElement();
-      this.delegateEvents();
+      if (!options.noCreateElement) {
+          this._ensureElement();
+          this.delegateEvents();
+      }
       this.initialize.apply(this, arguments);
     };
-    Backbone.KineticView.extend = Backbone.Model.extend;
+    KineticView.extend = Backbone.Model.extend;
     var delegateEventSplitter = /^(\S+)\s*(.*)$/;
     var viewOptions = ['model', 'collection', 'el', 'attributes', 'events'];
 
-    _.extend(Backbone.KineticView.prototype, Backbone.Events, {
+    _.extend(KineticView.prototype, Backbone.Events, {
       initialize: function(){},
       el : function(){
         return new Kinetic.Group();
@@ -20,6 +34,7 @@
         return this;
       },
       remove: function() {
+        if (!this.$el) { return; }
         this.$el.destroy();
         this.stopListening();
         return this;
@@ -81,5 +96,5 @@
         }
       }
     });
-
-}).call(this);
+    return KineticView;
+}));
