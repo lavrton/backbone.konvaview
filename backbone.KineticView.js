@@ -12,13 +12,11 @@
 }(this, function(root, Backbone, Kinetic) {
 
      var KineticView = function(options) {
-      var options = options || {};
+      options = options || {};
       this.cid = _.uniqueId('view');
       this._configure(options || {});
-      if (!options.noCreateElement) {
-          this._ensureElement();
-          this.delegateEvents();
-      }
+      this._ensureElement();
+      this.delegateEvents();
       this.initialize.apply(this, arguments);
     };
     KineticView.extend = Backbone.Model.extend;
@@ -34,7 +32,6 @@
         return this;
       },
       remove: function() {
-        if (!this.$el) { return; }
         this.$el.destroy();
         this.stopListening();
         return this;
@@ -75,7 +72,7 @@
           if (selector === '') {
             this.$el.on(eventName, method);
           } else {
-            this.$el.get(selector).each(function(child){
+            this.$el.find(selector).each(function(child){
               child.on(eventName, method);
             });
           }
