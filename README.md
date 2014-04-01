@@ -1,7 +1,9 @@
 backbone.kineticview
 ====================
 
-Special Backbone View for canvas via [Kineticjs](http://kineticjs.com/) library.
+Special Backbone View for canvas via [KineticJS](http://kineticjs.com/) library.
+
+[![Build Status](https://travis-ci.org/slash-system/backbone.kineticview.svg)](https://travis-ci.org/slash-system/backbone.kineticview)
 
 Example:
 
