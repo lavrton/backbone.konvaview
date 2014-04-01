@@ -1,0 +1,24 @@
+{
+  "name"          : "backbone.KineticView",
+  "description"   : "Special Backbone View for canvas via KineticJS",
+  "url"           : "https://github.com/slash-system/backbone.kineticview",
+  "keywords"      : ["backbone", "canvas", "kineticjs"],
+  "author"        : "Anton Lavrenov <lavrton@gmail.com>",
+  "dependencies"  : {
+    "backbone"  : ">=1.0.0",
+    "kineticjs" : ">=5.0.0"
+  },
+  "devDependencies": {
+    "phantomjs": "1.9.7-1"
+  },
+  "scripts": {
+    "test": "phantomjs test/vendor/runner.js test/index.html?noglobals=true"
+  },
+  "main"          : "backbone/KineticView.js",
+  "version"       : "0.5.0",
+  "license"       : "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/slash-system/backbone.kineticview"
+  }
+}
