@@ -1,0 +1,23 @@
+{
+  "name": "backbone.KineticView",
+  "version": "0.5.1",
+  "homepage": "https://github.com/slash-system/backbone.kineticview",
+  "authors": [
+    "Anton Lavrenov"
+  ],
+  "description": "Special Backbone View for canvas via KineticJS",
+  "keywords": [
+    "backbone",
+    "canvas",
+    "kineticjs"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "main": "backbone.KineticView.js"
+}
