@@ -5,7 +5,6 @@
   "keywords"      : ["backbone", "canvas", "kineticjs"],
   "author"        : "Anton Lavrenov <lavrton@gmail.com>",
   "dependencies"  : {
-    "backbone"  : ">=1.0.0",
     "kineticjs" : ">=5.0.0"
   },
   "devDependencies": {
