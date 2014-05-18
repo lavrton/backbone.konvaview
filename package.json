@@ -18,7 +18,7 @@
     "test": "phantomjs test/vendor/runner.js test/index.html?noglobals=true"
   },
   "main": "backbone.KineticView.js",
-  "version": "0.5.1",
+  "version": "0.9.0",
   "license": "MIT",
   "repository": {
     "type": "git",
