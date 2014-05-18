@@ -10,6 +10,9 @@ Example:
 ```javascript
     var MyView = Backbone.KineticView.extend({
       // build Kineticjs object, then return it.
+      initialize : function(params) {
+        this.layer = params.layer;
+      },
       el : function(){
         var rect = new Kinetic.Rect({
           x : 100,
@@ -42,7 +45,7 @@ Example:
       },
       render : function(){
         // this.$el - cached kineticjs object.
-        this.options.layer.add(this.$el);
+        this.layer.add(this.el);
         layer.draw();
       }
     });
