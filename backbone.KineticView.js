@@ -6,11 +6,13 @@
       return Backbone;
     });
   } else if (typeof exports !== 'undefined') {
-    var Backbone = require('backbone');
-    Backbone.KineticView = factory(root, require('underscore'), Backbone, require('kinetic'));
-    module.exports = Backbone.KineticView;
+    var Backbone_ = require('backbone');
+    Backbone_.KineticView = factory(root, require('underscore'), Backbone_, require('kinetic'));
+    module.exports = Backbone_.KineticView;
+
   } else {
     root.Backbone.KineticView = factory(root, _, Backbone, Kinetic);
+
   }
 
 }(this, function(root, _, Backbone, Kinetic) {
