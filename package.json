@@ -9,7 +9,9 @@
   ],
   "author": "Anton Lavrenov <lavrton@gmail.com>",
   "dependencies": {
-    "backbone": ">=1.0.0"
+    "backbone": ">=1.0.0",
+    "underscore" : ">=1.6.0",
+    "kinetic" : ">=5.0.6"
   },
   "devDependencies": {
     "phantomjs": "1.9.7-1"

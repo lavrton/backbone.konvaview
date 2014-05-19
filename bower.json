@@ -11,6 +11,11 @@
     "canvas",
     "kineticjs"
   ],
+  "dependencies": {
+    "backbone": ">=1.0.0",
+    "underscore" : ">=1.6.0",
+    "kinetic" : ">=5.0.6"
+  },
   "license": "MIT",
   "ignore": [
     "**/.*",
