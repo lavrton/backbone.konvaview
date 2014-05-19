@@ -1,17 +1,19 @@
 (function(root, factory) {
 
   if (typeof define === 'function' && define.amd) {
-    define(['backbone', 'kinetic'], function(Backbone, Kinetic) {
-      Backbone.KineticView = factory(root, Backbone, Kinetic);
+    define(['underscore', 'backbone', 'kinetic'], function(_, Backbone, Kinetic) {
+      Backbone.KineticView = factory(root, _, Backbone, Kinetic);
       return Backbone;
     });
   } else if (typeof exports !== 'undefined') {
-    factory(root, require('backbone'), require('kinetic'));
+    var Backbone = require('backbone');
+    Backbone.KineticView = factory(root, require('underscore'), Backbone, require('kinetic'));
+    module.exports = Backbone.KineticView;
   } else {
-    root.Backbone.KineticView = factory(root, Backbone, Kinetic);
+    root.Backbone.KineticView = factory(root, _, Backbone, Kinetic);
   }
 
-}(this, function(root, Backbone, Kinetic) {
+}(this, function(root, _, Backbone, Kinetic) {
 
      var KineticView = function(options) {
       this.cid = _.uniqueId('view');
