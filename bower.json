@@ -1,6 +1,6 @@
 {
   "name": "backbone.KineticView",
-  "version": "0.9.3",
+  "version": "0.9.4",
   "homepage": "https://github.com/slash-system/backbone.kineticview",
   "authors": [
     "Anton Lavrenov"
@@ -14,7 +14,7 @@
   "dependencies": {
     "backbone": ">=1.0.0",
     "underscore" : ">=1.6.0",
-    "kinetic" : ">=5.0.6"
+    "kineticjs" : ">=5.0.6"
   },
   "license": "MIT",
   "ignore": [
