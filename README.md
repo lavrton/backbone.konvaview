@@ -5,7 +5,7 @@ Special Backbone View for canvas via [KineticJS](http://kineticjs.com/) library.
 
 [![Build Status](https://travis-ci.org/slash-system/backbone.kineticview.svg)](https://travis-ci.org/slash-system/backbone.kineticview)
 
-Example:
+Example [Live preview](http://jsbin.com/fekex/1/edit):
 
 ```javascript
     var MyView = Backbone.KineticView.extend({
