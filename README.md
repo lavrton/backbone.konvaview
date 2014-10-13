@@ -44,7 +44,7 @@ Example [Live preview](http://jsbin.com/fekex/1/edit):
         console.log('Mouse is over circle');
       },
       render : function(){
-        // this.$el - cached kineticjs object.
+        // this.el - cached kineticjs object.
         this.layer.add(this.el);
         layer.draw();
       }
