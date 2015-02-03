@@ -5,7 +5,7 @@ Special Backbone View for canvas via [KonvaJS](http://konvajs.github.io/) librar
 
 [![Build Status](https://travis-ci.org/slash-system/backbone.konvaview.svg)](https://travis-ci.org/slash-system/backbone.konvaview)
 
-Example:
+Example [Live preview](http://jsbin.com/fekex/4/edit):
 
 ```javascript
     var MyView = Backbone.KonvaView.extend({
@@ -46,7 +46,7 @@ Example:
       render : function(){
         // this.el - cached KonvaJS object.
         this.layer.add(this.el);
-        layer.draw();
+        this.layer.draw();
       }
     });
 
