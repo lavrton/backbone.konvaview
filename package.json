@@ -1,17 +1,17 @@
 {
-  "name": "backbone.kineticview",
-  "description": "Special Backbone View for canvas via KineticJS",
-  "url": "https://github.com/slash-system/backbone.kineticview",
+  "name": "backbone.konvaview",
+  "description": "Special Backbone View for canvas via KonvaJS",
+  "url": "https://github.com/slash-system/backbone.konvaview",
   "keywords": [
     "backbone",
     "canvas",
-    "kineticjs"
+    "konvajs"
   ],
   "author": "Anton Lavrenov <lavrton@gmail.com>",
   "dependencies": {
     "backbone": ">=1.0.0",
     "underscore" : ">=1.6.0",
-    "kinetic" : ">=5.0.6"
+    "konva" : ">=0.7.0"
   },
   "devDependencies": {
     "phantomjs": "1.9.7-1"
@@ -19,17 +19,17 @@
   "scripts": {
     "test": "phantomjs test/vendor/runner.js test/index.html?noglobals=true"
   },
-  "main": "backbone.KineticView.js",
+  "main": "backbone.KonvaView.js",
   "version": "0.9.4",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/slash-system/backbone.kineticview"
+    "url": "https://github.com/slash-system/backbone.konvaview"
   },
   "bugs": {
-    "url": "https://github.com/slash-system/backbone.kineticview/issues"
+    "url": "https://github.com/slash-system/backbone.konvaview/issues"
   },
-  "homepage": "https://github.com/slash-system/backbone.kineticview",
+  "homepage": "https://github.com/slash-system/backbone.konvaview",
   "directories": {
     "test": "test"
   }

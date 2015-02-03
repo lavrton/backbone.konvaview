@@ -1,34 +1,34 @@
 (function(root, factory) {
 
   if (typeof define === 'function' && define.amd) {
-    define(['underscore', 'backbone', 'kinetic'], function(_, Backbone, Kinetic) {
-      Backbone.KineticView = factory(root, _, Backbone, Kinetic);
+    define(['underscore', 'backbone', 'konva'], function(_, Backbone, Konva) {
+      Backbone.KonvaView = factory(root, _, Backbone, Konva);
       return Backbone;
     });
   } else if (typeof exports !== 'undefined') {
     var Backbone_ = require('backbone');
-    Backbone_.KineticView = factory(root, require('underscore'), Backbone_, require('kinetic'));
-    module.exports = Backbone_.KineticView;
+    Backbone_.KonvaView = factory(root, require('underscore'), Backbone_, require('konva'));
+    module.exports = Backbone_.KonvaView;
 
   } else {
-    root.Backbone.KineticView = factory(root, _, Backbone, Kinetic);
+    root.Backbone.KonvaView = factory(root, _, Backbone, Konva);
 
   }
 
-}(this, function(root, _, Backbone, Kinetic) {
+}(this, function(root, _, Backbone, Konva) {
 
-     var KineticView = function(options) {
+     var KonvaView = function(options) {
       this.cid = _.uniqueId('view');
       options || (options = {});
       _.extend(this, _.pick(options, viewOptions));
       this._ensureElement();
       this.initialize.apply(this, arguments);
     };
-    KineticView.extend = Backbone.Model.extend;
+    KonvaView.extend = Backbone.Model.extend;
     var delegateEventSplitter = /^(\S+)\s*(.*)$/;
     var viewOptions = ['model', 'collection', 'el', 'id', 'attributes', 'events', 'nodeType'];
 
-    _.extend(KineticView.prototype, Backbone.Events, {
+    _.extend(KonvaView.prototype, Backbone.Events, {
       nodeType : 'Group',
 
       initialize: function(){},
@@ -109,7 +109,7 @@
         this.options = options;
       },
       _createElement: function(nodeType) {
-        return new Kinetic[nodeType];
+        return new Konva[nodeType];
       },
       _ensureElement: function() {
         if (!this.el) {
@@ -125,5 +125,5 @@
         this.el.setAttrs(attributes);
       }
     });
-    return KineticView;
+    return KonvaView;
 }));

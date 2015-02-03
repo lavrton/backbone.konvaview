@@ -1,20 +1,20 @@
-backbone.kineticview
+backbone.konvaview
 ====================
 
-Special Backbone View for canvas via [KineticJS](http://kineticjs.com/) library.
+Special Backbone View for canvas via [KonvaJS](http://konvajs.github.io/) library.
 
-[![Build Status](https://travis-ci.org/slash-system/backbone.kineticview.svg)](https://travis-ci.org/slash-system/backbone.kineticview)
+[![Build Status](https://travis-ci.org/slash-system/backbone.konvaview.svg)](https://travis-ci.org/slash-system/backbone.konvaview)
 
 Example:
 
 ```javascript
-    var MyView = Backbone.KineticView.extend({
-      // build Kineticjs object, then return it.
+    var MyView = Backbone.KonvaView.extend({
+      // build KonvaJS object, then return it.
       initialize : function(params) {
         this.layer = params.layer;
       },
       el : function(){
-        var rect = new Kinetic.Rect({
+        var rect = new Konva.Rect({
           x : 100,
           y : 100,
           width : 50,
@@ -22,14 +22,14 @@ Example:
           fill : 'green',
           id : 'rect'
         });
-        var circle = new Kinetic.Circle({
+        var circle = new Konva.Circle({
           x : 200,
           y : 100,
           radius : 50,
           fill : 'red',
           name : 'circle'
         });
-        var group = new Kinetic.Group();
+        var group = new Konva.Group();
         group.add(rect).add(circle);
         return group;
       },
@@ -44,18 +44,18 @@ Example:
         console.log('Mouse is over circle');
       },
       render : function(){
-        // this.$el - cached kineticjs object.
+        // this.el - cached KonvaJS object.
         this.layer.add(this.el);
         layer.draw();
       }
     });
 
-    var stage = new Kinetic.Stage({
+    var stage = new Konva.Stage({
       container : 'container',
       width : 300,
       height : 300
     });
-    var layer = new Kinetic.Layer();
+    var layer = new Konva.Layer();
     stage.add(layer);
 
     view = new MyView({layer:layer});
