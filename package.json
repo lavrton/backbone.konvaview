@@ -14,7 +14,7 @@
     "konva" : ">=0.7.0"
   },
   "devDependencies": {
-    "phantomjs": "1.9.7-1"
+    "phantomjs": "1.9.8"
   },
   "scripts": {
     "test": "phantomjs test/vendor/runner.js test/index.html?noglobals=true"
