@@ -3,7 +3,7 @@ backbone.konvaview
 
 Special Backbone View for canvas via [KonvaJS](http://konvajs.github.io/) library.
 
-[![Build Status](https://travis-ci.org/slash-system/backbone.konvaview.svg)](https://travis-ci.org/slash-system/backbone.konvaview)
+[![Build Status](https://travis-ci.org/lavrton/backbone.konvaview.svg)](https://travis-ci.org/lavrton/backbone.konvaview)
 
 `Backbove.KonvaView` allow you to work with `KonvaJS` objects in a same as `Backbone.View` works with DOM objects.
 For more documentation see [Backbone.View docs](http://backbonejs.org/#View).
